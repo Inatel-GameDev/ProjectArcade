@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,14 +25,28 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float tempoUltimoLixo;
     [SerializeField] private float tempoUltimoCone;
 
-    [SerializeField] private int totalPeixePegos;
+    [SerializeField] private int pontos;
+    [SerializeField] public TMP_Text textoPonto;
+    [SerializeField] public TMP_Text textoVida;
 
+    [SerializeField] public Button comecar;    
 
-    void Start()
+    public void Recomecar()
     {
+        SceneManager.LoadScene("PeixePenguim");
+    }
+
+    public void Comecar()
+    {
+        Time.timeScale = 1;
         tempoUltimoPeixe = Time.time;
         tempoUltimoCone = Time.time;
         tempoUltimoLixo = Time.time;
+    }
+
+    void Start()
+    {
+        Time.timeScale = 0;        
     }
 
     void Update()
@@ -51,6 +68,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Pesca()
+    {
+        pontos++;
+        textoPonto.text = "Pontos: " + pontos.ToString();
+    }
+
+    public void PerdeVida(int vida)
+    {
+        textoVida.text = "Monsters: " + vida.ToString();
+    }
 
     public void Spwan(GameObject obj)
     {        

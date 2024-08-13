@@ -20,8 +20,15 @@ public class Nadador : MonoBehaviour
     [SerializeField] private float maxX;
     [SerializeField] private float minX;
 
+    [SerializeField] public bool pescado;
+
+    [SerializeField] Camera camera;
+
     private void Start()
     {
+
+        camera = GameObject.Find("Main Camera").GetComponent<Camera>();
+
         rb = GetComponent<Rigidbody2D>();
         maxHeight = rb.transform.position.y + deltaHeigth;
         minHeight = rb.transform.position.y - deltaHeigth;
@@ -36,25 +43,40 @@ public class Nadador : MonoBehaviour
     }
 
     void Update()
-    {   
-        if(subindo)
+    {   if (!pescado)
         {
-            rb.velocity = new Vector2(speedH, speedV);
+            if (subindo)
+            {
+                rb.velocity = new Vector2(speedH, speedV);
+            }
+            else
+            {
+                rb.velocity = new Vector2(speedH, -speedV);
+            }
+
+            if (subindo && rb.transform.position.y > maxHeight)
+            {
+                subindo = false;
+            }
+
+            if (!subindo && rb.transform.position.y < minHeight)
+            {
+                subindo = true;
+            }
         } else
         {
-            rb.velocity = new Vector2(speedH, -speedV);
-        }
+            float y = camera.ScreenToWorldPoint(Input.mousePosition).y;
+            if (y > 13f)
+            {
+                y = 13f;
+            }
+            else if (y < 5.5f)
+            {
+                y = 5.5f;
+            }
 
-        if(subindo && rb.transform.position.y > maxHeight)
-        {
-            subindo = false;
+            transform.position = new Vector3(13.6f, y, 0);
         }
-
-        if (!subindo && rb.transform.position.y < minHeight)
-        {
-            subindo = true;
-        }
-
 
         if(rb.transform.position.x > maxX || rb.transform.position.x < minX)
         {
