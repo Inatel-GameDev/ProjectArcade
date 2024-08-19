@@ -15,32 +15,37 @@ public class Cadu : MonoBehaviour
     [SerializeField] public int vidas;
 
     [SerializeField] GameManager gameManager;
+
+    [SerializeField] public bool pausado;
     
     void Start()
     {
-        
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     void Update()
     {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.Confined;
-        float y = camera.ScreenToWorldPoint(Input.mousePosition).y;        
-        if (y >= 13f)
+        if (!pausado)
         {
-            y = 13f;
-            if (comPeixe)
+            float y = camera.ScreenToWorldPoint(Input.mousePosition).y;
+            if (y >= 13f)
             {
-                comPeixe = false;
-                Destroy(peixe.gameObject);
-                gameManager.Pesca();
+                y = 13f;
+                if (comPeixe)
+                {
+                    comPeixe = false;
+                    Destroy(peixe.gameObject);
+                    gameManager.Pesca();
+                }
             }
-        }else if (y < 5.5f)
-        {
-            y = 5.5f;
-        }
+            else if (y < 5.5f)
+            {
+                y = 5.5f;
+            }
 
-        transform.position = new Vector3(13.6f, y, 0);        
+            transform.position = new Vector3(13.6f, y, 0);
+        }
     }
 
 
@@ -61,9 +66,14 @@ public class Cadu : MonoBehaviour
             }
             if (vidas == 0)
             {
+                gameManager.Perdeu();
                 Destroy(this.gameObject);
             }
 
+        } else if(collision.tag == "final" &&comPeixe )
+        {
+            Destroy(peixe.gameObject);
+            gameManager.GanhouShadow();
         }
 
     }

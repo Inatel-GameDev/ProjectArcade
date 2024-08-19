@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/PeixePenguim.unity
+    guid: 37c8c040fe3ad0d429e042b7682cb325
+  - enabled: 0
     path: Assets/Scenes/Menu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

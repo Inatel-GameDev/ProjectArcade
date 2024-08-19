@@ -26,30 +26,85 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float tempoUltimoCone;
 
     [SerializeField] private int pontos;
+    [SerializeField] private int pontosMax;
     [SerializeField] public TMP_Text textoPonto;
     [SerializeField] public TMP_Text textoVida;
 
-    [SerializeField] public Button comecar;    
+    [SerializeField] public Button comecar;
+    [SerializeField] public GameObject startMenu;
+    [SerializeField] public GameObject endMenu;
+    [SerializeField] public GameObject endMenuGood;
+    [SerializeField] public GameObject endMenuMtGood;
+    [SerializeField] public GameObject peixeFinal;
+    [SerializeField] public GameObject shadow;
+    [SerializeField] public Rigidbody2D shadowRB;
+
+    [SerializeField] public Cadu cadu;
+    [SerializeField] public bool acabou = false;
 
     public void Recomecar()
     {
         SceneManager.LoadScene("PeixePenguim");
     }
 
+    public void Perdeu()
+    {
+        endMenu.SetActive(true);
+        Time.timeScale = 0;
+        cadu.pausado = true;
+    }
+
+    public void PeixeFinal(){
+        peixeFinal.SetActive(true);
+    }
+
+    public void ParaSpwan()
+    {
+        acabou = true;
+        cdCone = 200;
+        cdPeixe = 200;
+        cdLixo = 200;
+        Invoke("PeixeFinal", 5f);
+    }
+
+    /*public void Shadow()
+    {
+        shadow.SetActive(true);
+        shadowRB.transform.position += new Vector3(-2,+2,0);
+        shadowRB.transform.rotation *= Quaternion.Euler(0, 0, 90f);
+    }*/
+    
+    public void Ganhou()
+    {
+        endMenuGood.SetActive(true);
+        Time.timeScale = 0;
+        cadu.pausado = true;
+    }
+
+    public void GanhouShadow()
+    {
+        endMenuMtGood.SetActive(true);
+        Time.timeScale = 0;
+        cadu.pausado = true;
+    }
+
     public void Comecar()
     {
+        startMenu.SetActive(false);
         Time.timeScale = 1;
         tempoUltimoPeixe = Time.time;
         tempoUltimoCone = Time.time;
         tempoUltimoLixo = Time.time;
+        cadu.pausado = false;
     }
 
     void Start()
     {
-        Time.timeScale = 0;        
+        Time.timeScale = 0;
+        cadu.pausado = true;
     }
 
-    void Update()
+        void Update()
     {
         if (Time.time - tempoUltimoPeixe > cdPeixe)
         {
@@ -66,14 +121,22 @@ public class GameManager : MonoBehaviour
             tempoUltimoLixo = Time.time;
             Spwan(lixo);
         }
+        if(pontos == pontosMax)
+        {
+            if (!acabou)
+            {
+                ParaSpwan();
+            }
+        }
     }
+
 
     public void Pesca()
     {
         pontos++;
         textoPonto.text = "Pontos: " + pontos.ToString();
     }
-
+    
     public void PerdeVida(int vida)
     {
         textoVida.text = "Monsters: " + vida.ToString();

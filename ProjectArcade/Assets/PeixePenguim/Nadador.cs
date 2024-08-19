@@ -9,20 +9,20 @@ public class Nadador : MonoBehaviour
     [SerializeField] private float minSpeedH;
     [SerializeField] private float minSpeedV;
     [SerializeField] public float speedH;
-    [SerializeField] private float speedV;
+    [SerializeField] public float speedV;
     [SerializeField] private int direction;
-    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] public Rigidbody2D rb;
     [SerializeField] private float deltaHeigth;
-    [SerializeField] private float maxHeight;
-    [SerializeField] private float minHeight;
-    [SerializeField] private bool subindo;
+    [SerializeField] public float maxHeight;
+    [SerializeField] public float minHeight;
+    [SerializeField] public bool subindo;
 
     [SerializeField] private float maxX;
     [SerializeField] private float minX;
 
     [SerializeField] public bool pescado;
 
-    [SerializeField] Camera camera;
+    [SerializeField] public Camera camera;
 
     private void Start()
     {
