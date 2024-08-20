@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2959743991391196695}
   - component: {fileID: 3326231780525507942}
-  - component: {fileID: 6273424159747293777}
   - component: {fileID: 6946816494227900437}
   - component: {fileID: 1734668374441073451}
+  - component: {fileID: 6126425965016851028}
   m_Layer: 0
   m_Name: lixo
   m_TagString: lixo
@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.8, y: 7.62, z: 0.047513526}
-  m_LocalScale: {x: 0.23110276, y: 0.23110276, z: 0.23110276}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c9757989d2cec6a42aa6a4fd3e30908a, type: 3}
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: b41b819bd010c6d4d87f5600fffe4905, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -87,7 +87,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &6273424159747293777
+--- !u!114 &6946816494227900437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2216920468416098716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f7b02d196e16db4b81726c690fb2daa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeedH: 3
+  maxSpeedV: 2
+  minSpeedH: 1
+  minSpeedV: 0.5
+  speedH: 2
+  speedV: 0.5
+  rb: {fileID: 0}
+  deltaHeigth: 1
+  maxHeight: 0
+  minHeight: 0
+  subindo: 0
+  maxX: 27
+  minX: 2
+  pescado: 0
+  camera: {fileID: 0}
+--- !u!50 &1734668374441073451
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2216920468416098716}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!58 &6126425965016851028
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,59 +173,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0003806811, y: -0.44092053}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.402292
---- !u!114 &6946816494227900437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2216920468416098716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f7b02d196e16db4b81726c690fb2daa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSpeedH: 3
-  maxSpeedV: 2
-  minSpeedH: 1
-  minSpeedV: 0.5
-  speedH: 2
-  speedV: 0.5
-  direction: 0
-  rb: {fileID: 0}
-  deltaHeigth: 1
-  maxHeight: 0
-  minHeight: 0
-  subindo: 0
-  maxX: 27
-  minX: 2
---- !u!50 &1734668374441073451
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2216920468416098716}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Radius: 0.4375

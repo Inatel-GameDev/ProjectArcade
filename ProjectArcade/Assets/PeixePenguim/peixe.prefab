@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 783223190609965238}
   - component: {fileID: 2606636854750130483}
   - component: {fileID: 6303026787697783086}
+  - component: {fileID: -3936440337254793399}
   m_Layer: 0
   m_Name: peixe
   m_TagString: peixe
@@ -30,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.41, y: 7.11, z: 0.047513526}
-  m_LocalScale: {x: 0.11072383, y: 0.11072383, z: 0.11072383}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dd6f88fb884f2f949819c61e27843054, type: 3}
+  m_SortingOrder: 4
+  m_Sprite: {fileID: 207946808, guid: 348ba9eec31ecde419d63d0e30c1f3a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,9 +120,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.97747, y: 0.2987305}
+  m_Offset: {x: -0.045724034, y: -0.027550459}
   serializedVersion: 2
-  m_Radius: 2.863101
+  m_Radius: 0.2375623
 --- !u!114 &2606636854750130483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +141,6 @@ MonoBehaviour:
   minSpeedV: 1
   speedH: 0
   speedV: 0
-  direction: 0
   rb: {fileID: 0}
   deltaHeigth: 1
   maxHeight: 0
@@ -148,6 +148,8 @@ MonoBehaviour:
   subindo: 0
   maxX: 27
   minX: 2
+  pescado: 0
+  camera: {fileID: 0}
 --- !u!50 &6303026787697783086
 Rigidbody2D:
   serializedVersion: 4
@@ -175,3 +177,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &-3936440337254793399
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437304354206955799}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 42e0959e1c707cd44b52d94470674125, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
